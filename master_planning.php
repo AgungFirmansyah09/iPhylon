@@ -370,7 +370,7 @@ $Planning = mysqli_query($conn,"
                     <td><?= $Plan['line_produksi']; ?></td>
                     <td><?= $Plan['tanggal_spk']; ?></td>
                     <td><?= $Plan['uploaded_by']; ?></td>
-                    <td><?= $Plan['style']; ?> : </td>
+                    <td><?= $Plan['style']; ?> x </td>
                 </tr>
             </tbody>
         </table>
