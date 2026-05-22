@@ -10,34 +10,37 @@ $Planning = mysqli_query($conn,"
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
 
-  <title>iPhylon | Master Planning</title>
+    <meta charset="utf-8">
 
-  <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="plugins/fontawesome-free/css/all.min.css">
+    <title>iPhylon | Master Planning</title>
 
-  <!-- DataTables -->
-  <link rel="stylesheet"
-        href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-  <link rel="stylesheet"
-        href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="plugins/fontawesome-free/css/all.min.css">
 
-  <link rel="stylesheet"
-        href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet"
+          href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 
-  <!-- Theme style -->
-  <link rel="stylesheet"
-        href="dist/css/adminlte.min.css">
+    <link rel="stylesheet"
+          href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+    <link rel="stylesheet"
+          href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet"
+          href="dist/css/adminlte.min.css">
 
 </head>
 
@@ -45,300 +48,332 @@ $Planning = mysqli_query($conn,"
 
 <div class="wrapper">
 
-  <!-- HEADER -->
-  <?php include 'header.php'; ?>
+    <!-- HEADER -->
+    <?php include 'header.php'; ?>
 
-  <!-- CONTENT -->
-  <div class="content-wrapper">
+    <!-- CONTENT -->
+    <div class="content-wrapper">
 
-    <!-- HEADER CONTENT -->
-    <section class="content-header">
+        <!-- HEADER CONTENT -->
+        <section class="content-header">
 
-      <div class="container-fluid">
+            <div class="container-fluid">
 
-        <!-- DELETE ALERT -->
-        <?php if(isset($_GET['delete'])) : ?>
-          <div id="deleteAlert"
-               class="alert alert-danger alert-dismissible fade show">
+                <!-- DELETE ALERT -->
+                <?php if(isset($_GET['delete'])) : ?>
 
-            Planning berhasil dihapus
+                    <div id="deleteAlert"
+                         class="alert alert-danger alert-dismissible fade show">
 
-          </div>
-        <?php endif; ?>
-
-        <!-- SUCCESS ALERT -->
-        <?php if(isset($_GET['success'])) : ?>
-          <div id="successAlert"
-               class="alert alert-success alert-dismissible fade show">
-
-            SPK Planning berhasil diupload
-
-          </div>
-        <?php endif; ?>
-
-        <div class="row mb-2">
-
-          <div class="col-sm-6">
-            <h1>Master Planning</h1>
-          </div>
-
-          <div class="col-sm-6">
-
-            <ol class="breadcrumb float-sm-right">
-
-              <li class="breadcrumb-item">
-                <a href="index.php">Home</a>
-              </li>
-
-              <li class="breadcrumb-item active">
-                SPK Planning
-              </li>
-
-            </ol>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <section class="content">
-
-      <div class="container-fluid">
-
-        <!-- UPLOAD CARD -->
-        <div class="row">
-
-          <div class="col-md-12">
-
-            <div class="card card-primary">
-
-              <div class="card-header">
-
-                <h3 class="card-title">
-                  Upload SPK Planning
-                </h3>
-
-              </div>
-
-              <div class="card-body">
-
-                <form action="./UploadData/upload_master_planning.php"
-                      method="POST"
-                      enctype="multipart/form-data">
-
-                  <div class="row">
-
-                    <!-- FILE -->
-                    <div class="col-md-4">
-
-                      <label>Upload Excel</label>
-
-                      <div class="custom-file">
-
-                        <input type="file"
-                               class="custom-file-input"
-                               id="spkPlanning"
-                               name="spkPlanning"
-                               accept=".xls,.xlsx"
-                               required>
-
-                        <label class="custom-file-label">
-                          Choose Excel File
-                        </label>
-
-                      </div>
+                        Planning berhasil dihapus
 
                     </div>
 
-                    <!-- BUTTON -->
-                    <div class="col-md-2">
+                <?php endif; ?>
 
-                      <label>&nbsp;</label>
+                <!-- SUCCESS ALERT -->
+                <?php if(isset($_GET['success'])) : ?>
 
-                      <button type="submit"
-                              name="upload"
-                              class="btn btn-primary btn-block">
+                    <div id="successAlert"
+                         class="alert alert-success alert-dismissible fade show">
 
-                        <i class="fas fa-upload"></i>
-                        Upload
-
-                      </button>
+                        SPK Planning berhasil diupload
 
                     </div>
 
-                    <!-- TEMPLATE -->
-                    <div class="col-md-2">
+                <?php endif; ?>
 
-                      <label>&nbsp;</label>
+                <div class="row mb-2">
 
-                      <a href="./Template/template_spk_planning.xlsx"
-                         download
-                         class="btn btn-success btn-block">
+                    <div class="col-sm-6">
+                        <h1>Master Planning</h1>
+                    </div>
 
-                        <i class="fas fa-download"></i>
-                        Download Template
+                    <div class="col-sm-6">
 
-                      </a>
+                        <ol class="breadcrumb float-sm-right">
+
+                            <li class="breadcrumb-item">
+                                <a href="index.php">Home</a>
+                            </li>
+
+                            <li class="breadcrumb-item active">
+                                SPK Planning
+                            </li>
+
+                        </ol>
 
                     </div>
 
-                  </div>
-
-                </form>
-
-              </div>
+                </div>
 
             </div>
 
-          </div>
+        </section>
 
-        </div>
+        <!-- MAIN CONTENT -->
+        <section class="content">
 
-        <!-- TABLE -->
-        <div class="row">
+            <div class="container-fluid">
 
-          <div class="col-12">
+                <!-- UPLOAD CARD -->
+                <div class="row">
 
-            <div class="card card-default">
+                    <div class="col-md-12">
 
-              <div class="card-header">
+                        <div class="card card-primary">
 
-                <h3 class="card-title">
-                  Data SPK Planning
-                </h3>
+                            <div class="card-header">
 
-              </div>
+                                <h3 class="card-title">
+                                    Upload SPK Planning
+                                </h3>
 
-              <div class="card-body">
+                            </div>
 
-                <table id="example1"
-                       class="table table-bordered table-striped">
+                            <div class="card-body">
 
-                  <thead>
+                                <form action="./UploadData/upload_master_planning.php"
+                                      method="POST"
+                                      enctype="multipart/form-data">
 
-                    <tr>
+                                    <div class="row">
 
-                      <th>No</th>
-                      <th>No JO</th>
-                      <th>Item</th>
-                      <th>Mesin</th>
-                      <th>Injector</th>
-                      <th>Line</th>
-                      <th>Tanggal SPK</th>
-                      <th>Upload Date</th>
-                      <th width="120">Action</th>
+                                        <!-- FILE -->
+                                        <div class="col-md-4">
 
-                    </tr>
+                                            <label>Upload Excel</label>
 
-                  </thead>
+                                            <div class="custom-file">
 
-                  <tbody>
+                                                <input type="file"
+                                                       class="custom-file-input"
+                                                       id="spkPlanning"
+                                                       name="spkPlanning"
+                                                       accept=".xls,.xlsx"
+                                                       required>
 
-                    <?php $i = 1; ?>
-                    <?php foreach($Planning as $Plan) : ?>
+                                                <label class="custom-file-label">
+                                                    Choose Excel File
+                                                </label>
 
-                    <tr>
+                                            </div>
 
-                      <td><?= $i++; ?></td>
-                      <td><?= $Plan['no_jo']; ?></td>
-                      <td><?= $Plan['item']; ?></td>
-                      <td><?= $Plan['mesin']; ?></td>
-                      <td><?= $Plan['injector']; ?></td>
-                      <td><?= $Plan['line_produksi']; ?></td>
-                      <td><?= $Plan['tanggal_spk']; ?></td>
-                      <td><?= $Plan['tanggal_upload']; ?></td>
+                                        </div>
 
-                      <td>
+                                        <!-- BUTTON -->
+                                        <div class="col-md-2">
 
-                        <!-- DETAIL -->
-                        <button type="button"
-                                class="btn btn-info btn-sm"
-                                data-toggle="modal"
-                                data-target="#detailSPK<?= $Plan['id_jo_spk']; ?>">
+                                            <label>&nbsp;</label>
 
-                          <i class="fas fa-eye"></i>
+                                            <button type="submit"
+                                                    name="upload"
+                                                    class="btn btn-primary btn-block">
 
-                        </button>
+                                                <i class="fas fa-upload"></i>
+                                                Upload
 
-                        <!-- GENERATE QR -->
-                        <a href="generate_qr.php?id=<?= $Plan['id_jo_spk']; ?>"
-                           class="btn btn-success btn-sm">
+                                            </button>
 
-                          <i class="fas fa-qrcode"></i>
+                                        </div>
 
-                        </a>
+                                        <!-- TEMPLATE -->
+                                        <div class="col-md-2">
 
-                        <!-- DELETE -->
-                        <a href="delete_planning.php?id=<?= $Plan['id_jo_spk']; ?>"
-                           class="btn btn-danger btn-sm"
-                           onclick="return confirm('Delete this planning?')">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
+                                            <label>&nbsp;</label>
+
+                                            <a href="./Template/template_spk_planning.xlsx"
+                                               download
+                                               class="btn btn-success btn-block">
+
+                                                <i class="fas fa-download"></i>
+                                                Download Template
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- TABLE -->
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="card card-default">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">
+                                    Data SPK Planning
+                                </h3>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <table id="example1"
+                                       class="table table-bordered table-striped">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>No</th>
+                                            <th>No JO</th>
+                                            <th>Item</th>
+                                            <th>Mesin</th>
+                                            <th>Injector</th>
+                                            <th>Line</th>
+                                            <th>Tanggal SPK</th>
+                                            <th>Upload Date</th>
+                                            <th width="120">Action</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <?php $i = 1; ?>
+
+                                        <?php foreach($Planning as $Plan) : ?>
+
+                                        <tr>
+
+                                            <td><?= $i++; ?></td>
+
+                                            <td><?= $Plan['no_jo']; ?></td>
+
+                                            <td><?= $Plan['item']; ?></td>
+
+                                            <td><?= $Plan['mesin']; ?></td>
+
+                                            <td><?= $Plan['injector']; ?></td>
+
+                                            <td><?= $Plan['line_produksi']; ?></td>
+
+                                            <td><?= $Plan['tanggal_spk']; ?></td>
+
+                                            <td><?= $Plan['tanggal_upload']; ?></td>
+
+                                            <td>
+
+                                                <!-- DETAIL -->
+                                                <button type="button"
+                                                        class="btn btn-info btn-sm"
+                                                        data-toggle="modal"
+                                                        data-target="#detailSPK<?= $Plan['id_jo_spk']; ?>">
+
+                                                    <i class="fas fa-eye"></i>
+
+                                                </button>
+
+                                                <!-- GENERATE QR -->
+                                                <a href="generate_qr.php?id=<?= $Plan['id_jo_spk']; ?>"
+                                                   class="btn btn-success btn-sm">
+
+                                                    <i class="fas fa-qrcode"></i>
+
+                                                </a>
+
+                                                <!-- DELETE -->
+                                                <a href="delete_planning.php?id=<?= $Plan['id_jo_spk']; ?>"
+                                                   class="btn btn-danger btn-sm"
+                                                   onclick="return confirm('Delete this planning?')">
+
+                                                    <i class="fas fa-trash"></i>
+
+                                                </a>
+
+                                            </td>
+
+                                        </tr>
+
+                                        <?php endforeach; ?>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
 
-  <!-- FOOTER -->
-  <footer class="main-footer">
+        </section>
 
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 1.0.0
     </div>
-    2024
-    <strong>
-      <a href="#">Mfg Project Officer</a>
-    </strong>
-    All rights reserved.
-  </footer>
 
-  <!-- SIDEBAR -->
-  <aside class="control-sidebar control-sidebar-dark"></aside>
+    <!-- FOOTER -->
+    <footer class="main-footer">
+
+        <div class="float-right d-none d-sm-block">
+            <b>Version</b> 1.0.0
+        </div>
+
+        2024
+
+        <strong>
+            <a href="#">Mfg Project Officer</a>
+        </strong>
+
+        All rights reserved.
+
+    </footer>
+
+    <!-- SIDEBAR -->
+    <aside class="control-sidebar control-sidebar-dark"></aside>
+
 </div>
 
 <!-- ================= MODAL SECTION ================= -->
+
 <?php foreach($Planning as $Plan) : ?>
 
 <div class="modal fade"
      id="detailSPK<?= $Plan['id_jo_spk']; ?>"
      tabindex="-1">
 
-  <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
 
-    <div class="modal-content">
+        <div class="modal-content">
 
-      <!-- HEADER -->
-      <div class="modal-header bg-info">
+            <!-- HEADER -->
+            <div class="modal-header bg-info">
 
-        <h4 class="modal-title">
-          Detail SPK Planning
-        </h4>
+                <h4 class="modal-title">
+                    Detail SPK Planning
+                </h4>
 
-        <button type="button"
-                class="close"
-                data-dismiss="modal">
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal">
 
-          <span>&times;</span>
+                    <span>&times;</span>
 
-        </button>
+                </button>
 
-      </div>
+            </div>
 
-      <!-- BODY -->
-      <div class="modal-body">
-<!-- QUERY DETAIL -->
+            <!-- BODY -->
+            <div class="modal-body">
+
                 <?php
                 $detail = mysqli_query($conn,"
                     SELECT *
@@ -346,51 +381,122 @@ $Planning = mysqli_query($conn,"
                     WHERE id_jo_spk = '".$Plan['id_jo_spk']."'
                 ");
                 ?>
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="bg-info">
-                <tr>
-                    <th>No JO</th>
-                    <th>Item</th>
-                    <th>Mesin</th>
-                    <th>Injector</th>
-                    <th>Line</th>
-                    <th>Tanggal SPK</th>
-                    <th>Upload By</th>
-                    <th>Style</th>
-                </tr>
-            </thead>
 
-            <tbody>
-                <tr>
-                    <td><?= $Plan['no_jo']; ?></td>
-                    <td><?= $Plan['item']; ?></td>
-                    <td><?= $Plan['mesin']; ?></td>
-                    <td><?= $Plan['injector']; ?></td>
-                    <td><?= $Plan['line_produksi']; ?></td>
-                    <td><?= $Plan['tanggal_spk']; ?></td>
-                    <td><?= $Plan['uploaded_by']; ?></td>
-                    <td><?= $Plan['style']; ?></td>
-                </tr>
-            </tbody>
-        </table>
+                <!-- INFORMASI MASTER -->
+                <div class="row mb-3">
+
+                    <div class="col-md-3">
+
+                        <b>No JO :</b><br>
+
+                        <?= $Plan['no_jo']; ?>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <b>Item :</b><br>
+
+                        <?= $Plan['item']; ?>
+
+                    </div>
+
+                    <div class="col-md-2">
+
+                        <b>Mesin :</b><br>
+
+                        <?= $Plan['mesin']; ?>
+
+                    </div>
+
+                    <div class="col-md-2">
+
+                        <b>Injector :</b><br>
+
+                        <?= $Plan['injector']; ?>
+
+                    </div>
+
+                    <div class="col-md-2">
+
+                        <b>Line :</b><br>
+
+                        <?= $Plan['line_produksi']; ?>
+
+                    </div>
+
+                </div>
+
+                <!-- TABLE DETAIL -->
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-striped">
+
+                        <thead class="bg-info">
+
+                            <tr>
+
+                                <th>Bucket</th>
+                                <th>Style</th>
+                                <th>Gender</th>
+                                <th>Colour</th>
+                                <th>PO</th>
+                                <th>PO Item</th>
+                                <th>Size</th>
+                                <th>Qty</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <?php foreach($detail as $d) : ?>
+
+                            <?php
+                            $sizeQty = mysqli_query($conn,"
+                                SELECT *
+                                FROM tbl_spk_size_qty
+                                WHERE id_detail = '".$d['id_detail']."'
+                            ");
+                            ?>
+
+                            <?php foreach($sizeQty as $sz) : ?>
+                            <tr>
+                                <td><?= $d['bucket']; ?></td>
+                                <td><?= $d['style']; ?></td>
+                                <td><?= $d['gender']; ?></td>
+                                <td><?= $d['colour']; ?></td>
+                                <td><?= $d['po']; ?></td>
+                                <td><?= $d['po_item']; ?></td>
+                                <!-- SIZE -->
+                                <td><?= $sz['size']; ?></td>
+                                <!-- QTY -->
+                                <td><?= $sz['qty']; ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php endforeach; ?>
+
+                            </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
-      <!-- FOOTER -->
-      <div class="modal-footer">
-
-        <button type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<?php endforeach; ?>
+                            <?php endforeach; ?>
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
