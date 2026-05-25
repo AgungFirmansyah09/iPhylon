@@ -3,12 +3,9 @@ session_start();
 require 'function.php';
 
 if (!isset($_SESSION['login'])) {
-
     header("Location: login.php");
     exit;
-
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -16,72 +13,78 @@ if (!isset($_SESSION['login'])) {
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>iPhylon | Master QR Code</title>
+    <title>iPhylon | Master QR Code</title>
 
-<!-- Google Font -->
-<link rel="stylesheet"
-href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-<!-- Font Awesome -->
-<link rel="stylesheet"
-href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="plugins/fontawesome-free/css/all.min.css">
 
-<!-- DataTables -->
-<link rel="stylesheet"
-href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet"
+        href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 
-<link rel="stylesheet"
-href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-<!-- Theme style -->
-<link rel="stylesheet"
-href="dist/css/adminlte.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet"
+        href="plugins/select2/css/select2.min.css">
 
-<link rel="stylesheet"
-href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
-<style>
+    <!-- Theme style -->
+    <link rel="stylesheet"
+        href="dist/css/adminlte.min.css">
 
-.table-responsive{
-    max-height: 70vh;
-    overflow: auto;
-}
+    <style>
 
-/* FREEZE HEADER */
-#example1 thead th{
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #17a2b8 !important;
-    color: white;
-    white-space: nowrap;
-}
+        .table-responsive{
+            max-height: 70vh;
+            overflow: auto;
+        }
 
-/* RAPIIKAN TABLE */
-#example1 td,
-#example1 th{
-    white-space: nowrap;
-    vertical-align: middle;
-}
+        /* FREEZE HEADER */
+        #example1 thead th{
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #17a2b8 !important;
+            color: white;
+            white-space: nowrap;
+        }
 
-.checkItem,
-#checkAll{
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-}
+        /* TABLE */
+        #example1 td,
+        #example1 th{
+            white-space: nowrap;
+            vertical-align: middle;
+        }
 
-#example1 td:first-child,
-#example1 td:nth-child(2),
-#example1 th:first-child,
-#example1 th:nth-child(2){
-    text-align: center;
-    vertical-align: middle;
-}
-</style>
+        /* CHECKBOX */
+        .checkItem,
+        #checkAll{
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        #example1 td:first-child,
+        #example1 td:nth-child(2),
+        #example1 th:first-child,
+        #example1 th:nth-child(2){
+            text-align: center;
+            vertical-align: middle;
+        }
+
+    </style>
 
 </head>
 
@@ -89,822 +92,774 @@ href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
 <div class="wrapper">
 
-<!-- HEADER -->
-<?php include 'header.php'; ?>
+    <!-- HEADER -->
+    <?php include 'header.php'; ?>
 
-<!-- CONTENT -->
-<div class="content-wrapper">
+    <!-- CONTENT -->
+    <div class="content-wrapper">
 
-<!-- HEADER PAGE -->
-<section class="content-header">
+        <!-- PAGE HEADER -->
+        <section class="content-header">
 
-<div class="container-fluid">
+            <div class="container-fluid">
 
-<div class="row mb-2">
+                <div class="row mb-2">
 
-<div class="col-sm-6">
-<h1>Master QR Code</h1>
-</div>
+                    <div class="col-sm-6">
+                        <h1>Master QR Code</h1>
+                    </div>
 
-<div class="col-sm-6">
+                    <div class="col-sm-6">
 
-<ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right">
 
-<li class="breadcrumb-item">
-<a href="index.php">Home</a>
-</li>
+                            <li class="breadcrumb-item">
+                                <a href="index.php">Home</a>
+                            </li>
 
-<li class="breadcrumb-item active">
-Master QR Code
-</li>
+                            <li class="breadcrumb-item active">
+                                Master QR Code
+                            </li>
 
-</ol>
+                        </ol>
 
-</div>
+                    </div>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</section>
+        </section>
 
-<!-- MAIN CONTENT -->
-<section class="content">
+        <!-- MAIN CONTENT -->
+        <section class="content">
 
-<div class="container-fluid">
+            <div class="container-fluid">
 
-<!-- SELECT2 -->
-<link rel="stylesheet"
-href="plugins/select2/css/select2.min.css">
+                <!-- FILTER -->
+                <div class="card card-info">
 
-<link rel="stylesheet"
-href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+                    <div class="card-header">
 
+                        <h3 class="card-title">
+                            Filter QR Code
+                        </h3>
 
-<!-- FILTER -->
-<div class="card card-info">
+                    </div>
 
-<div class="card-header">
-<h3 class="card-title">
-Filter QR Code
-</h3>
-</div>
+                    <div class="card-body">
 
-<div class="card-body">
+                        <form method="GET">
 
-<form method="GET">
+                            <div class="row">
 
-<div class="row">
+                                <!-- QR CODE -->
+                                <div class="col-md-3 mb-2">
 
-<!-- QR CODE -->
-<div class="col-md-3 mb-2">
+                                    <select
+                                        name="qr_code"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-<select name="qr_code"
-class="form-control select2bs4"
-style="width:100%;">
+                                        <option value="">
+                                            QR Code
+                                        </option>
 
-<option value="">
-QR Code
-</option>
+                                        <?php
+                                        $getQR = mysqli_query($conn,"
+                                            SELECT DISTINCT qr_code
+                                            FROM tbl_master_barcode
+                                            ORDER BY qr_code ASC
+                                        ");
 
-<?php
+                                        foreach($getQR as $qr){
+                                        ?>
 
-$getQR = mysqli_query($conn,"
-SELECT DISTINCT qr_code
-FROM tbl_master_barcode
-ORDER BY qr_code ASC
-");
+                                            <option
+                                                value="<?= $qr['qr_code']; ?>"
+                                                <?= (@$_GET['qr_code'] == $qr['qr_code']) ? 'selected' : ''; ?>>
 
-foreach($getQR as $qr){
+                                                <?= $qr['qr_code']; ?>
 
-?>
+                                            </option>
 
-<option
-value="<?= $qr['qr_code']; ?>"
-<?= (@$_GET['qr_code'] == $qr['qr_code']) ? 'selected' : ''; ?>>
+                                        <?php } ?>
 
-<?= $qr['qr_code']; ?>
+                                    </select>
 
-</option>
+                                </div>
 
-<?php } ?>
+                                <!-- JO -->
+                                <div class="col-md-3 mb-2">
 
-</select>
+                                    <select
+                                        name="no_jo"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-</div>
+                                        <option value="">
+                                            JO
+                                        </option>
 
-<!-- JO -->
-<div class="col-md-3 mb-2">
+                                        <?php
+                                        $getJO = mysqli_query($conn,"
+                                            SELECT DISTINCT no_jo
+                                            FROM tbl_jo_spk
+                                            ORDER BY no_jo ASC
+                                        ");
 
-<select name="no_jo"
-class="form-control select2bs4"
-style="width:100%;">
+                                        foreach($getJO as $jo){
+                                        ?>
 
-<option value="">
-JO
-</option>
+                                            <option
+                                                value="<?= $jo['no_jo']; ?>"
+                                                <?= (@$_GET['no_jo'] == $jo['no_jo']) ? 'selected' : ''; ?>>
 
-<?php
+                                                <?= $jo['no_jo']; ?>
 
-$getJO = mysqli_query($conn,"
-SELECT DISTINCT no_jo
-FROM tbl_jo_spk
-ORDER BY no_jo ASC
-");
+                                            </option>
 
-foreach($getJO as $jo){
+                                        <?php } ?>
 
-?>
+                                    </select>
 
-<option
-value="<?= $jo['no_jo']; ?>"
-<?= (@$_GET['no_jo'] == $jo['no_jo']) ? 'selected' : ''; ?>>
+                                </div>
 
-<?= $jo['no_jo']; ?>
+                                <!-- LINE -->
+                                <div class="col-md-3 mb-2">
 
-</option>
+                                    <select
+                                        name="line"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-<?php } ?>
+                                        <option value="">
+                                            Line
+                                        </option>
 
-</select>
+                                        <option value="Line 1">Line 1</option>
+                                        <option value="Line 2">Line 2</option>
+                                        <option value="Line 3">Line 3</option>
+                                        <option value="Line 4">Line 4</option>
+                                        <option value="Line 5">Line 5</option>
+                                        <option value="Line 6">Line 6</option>
+                                        <option value="Line 7">Line 7</option>
+                                        <option value="Line 8">Line 8</option>
 
-</div>
+                                    </select>
 
-<!-- LINE -->
-<div class="col-md-3 mb-2">
+                                </div>
 
-<select name="line"
-class="form-control select2bs4"
-style="width:100%;">
+                                <!-- BUCKET -->
+                                <div class="col-md-3 mb-2">
 
-<option value="">
-Line
-</option>
+                                    <select
+                                        name="bucket"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-<option value="Line 1">Line 1</option>
-<option value="Line 2">Line 2</option>
-<option value="Line 3">Line 3</option>
-<option value="Line 4">Line 4</option>
-<option value="Line 5">Line 5</option>
-<option value="Line 6">Line 6</option>
-<option value="Line 7">Line 7</option>
-<option value="Line 8">Line 8</option>
+                                        <option value="">
+                                            Bucket
+                                        </option>
 
-</select>
+                                        <?php
+                                        $getBucket = mysqli_query($conn,"
+                                            SELECT DISTINCT bucket
+                                            FROM tbl_spk_detail
+                                            ORDER BY bucket ASC
+                                        ");
 
-</div>
+                                        foreach($getBucket as $bucket){
+                                        ?>
 
-<!-- BUCKET -->
-<div class="col-md-3 mb-2">
+                                            <option
+                                                value="<?= $bucket['bucket']; ?>"
+                                                <?= (@$_GET['bucket'] == $bucket['bucket']) ? 'selected' : ''; ?>>
 
-<select name="bucket"
-class="form-control select2bs4"
-style="width:100%;">
+                                                <?= $bucket['bucket']; ?>
 
-<option value="">
-Bucket
-</option>
+                                            </option>
 
-<?php
+                                        <?php } ?>
 
-$getBucket = mysqli_query($conn,"
-SELECT DISTINCT bucket
-FROM tbl_spk_detail
-ORDER BY bucket ASC
-");
+                                    </select>
 
-foreach($getBucket as $bucket){
+                                </div>
 
-?>
+                                <!-- STYLE -->
+                                <div class="col-md-3 mb-2">
 
-<option
-value="<?= $bucket['bucket']; ?>"
-<?= (@$_GET['bucket'] == $bucket['bucket']) ? 'selected' : ''; ?>>
+                                    <select
+                                        name="style"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-<?= $bucket['bucket']; ?>
+                                        <option value="">
+                                            Style
+                                        </option>
 
-</option>
+                                        <?php
+                                        $getStyle = mysqli_query($conn,"
+                                            SELECT DISTINCT style
+                                            FROM tbl_spk_detail
+                                            ORDER BY style ASC
+                                        ");
 
-<?php } ?>
+                                        foreach($getStyle as $style){
+                                        ?>
 
-</select>
+                                            <option
+                                                value="<?= $style['style']; ?>"
+                                                <?= (@$_GET['style'] == $style['style']) ? 'selected' : ''; ?>>
 
-</div>
+                                                <?= $style['style']; ?>
 
-<!-- STYLE -->
-<div class="col-md-3 mb-2">
+                                            </option>
 
-<select name="style"
-class="form-control select2bs4"
-style="width:100%;">
+                                        <?php } ?>
 
-<option value="">
-Style
-</option>
+                                    </select>
 
-<?php
+                                </div>
 
-$getStyle = mysqli_query($conn,"
-SELECT DISTINCT style
-FROM tbl_spk_detail
-ORDER BY style ASC
-");
+                                <!-- PO -->
+                                <div class="col-md-3 mb-2">
 
-foreach($getStyle as $style){
+                                    <select
+                                        name="po"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-?>
+                                        <option value="">
+                                            PO
+                                        </option>
 
-<option
-value="<?= $style['style']; ?>"
-<?= (@$_GET['style'] == $style['style']) ? 'selected' : ''; ?>>
+                                        <?php
+                                        $getPO = mysqli_query($conn,"
+                                            SELECT DISTINCT po
+                                            FROM tbl_spk_detail
+                                            ORDER BY po ASC
+                                        ");
 
-<?= $style['style']; ?>
+                                        foreach($getPO as $po){
+                                        ?>
 
-</option>
+                                            <option
+                                                value="<?= $po['po']; ?>"
+                                                <?= (@$_GET['po'] == $po['po']) ? 'selected' : ''; ?>>
 
-<?php } ?>
+                                                <?= $po['po']; ?>
 
-</select>
+                                            </option>
 
-</div>
+                                        <?php } ?>
 
-<!-- PO -->
-<div class="col-md-3 mb-2">
+                                    </select>
 
-<select name="po"
-class="form-control select2bs4"
-style="width:100%;">
+                                </div>
 
-<option value="">
-PO
-</option>
+                                <!-- PO ITEM -->
+                                <div class="col-md-3 mb-2">
 
-<?php
+                                    <select
+                                        name="po_item"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-$getPO = mysqli_query($conn,"
-SELECT DISTINCT po
-FROM tbl_spk_detail
-ORDER BY po ASC
-");
+                                        <option value="">
+                                            PO Item
+                                        </option>
 
-foreach($getPO as $po){
+                                        <?php
+                                        $getPOItem = mysqli_query($conn,"
+                                            SELECT DISTINCT po_item
+                                            FROM tbl_spk_detail
+                                            ORDER BY po_item ASC
+                                        ");
 
-?>
+                                        foreach($getPOItem as $poitem){
+                                        ?>
 
-<option
-value="<?= $po['po']; ?>"
-<?= (@$_GET['po'] == $po['po']) ? 'selected' : ''; ?>>
+                                            <option
+                                                value="<?= $poitem['po_item']; ?>"
+                                                <?= (@$_GET['po_item'] == $poitem['po_item']) ? 'selected' : ''; ?>>
 
-<?= $po['po']; ?>
+                                                <?= $poitem['po_item']; ?>
 
-</option>
+                                            </option>
 
-<?php } ?>
+                                        <?php } ?>
 
-</select>
+                                    </select>
 
-</div>
+                                </div>
 
-<!-- PO ITEM -->
-<div class="col-md-3 mb-2">
+                                <!-- ITEM -->
+                                <div class="col-md-3 mb-2">
 
-<select name="po_item"
-class="form-control select2bs4"
-style="width:100%;">
+                                    <select
+                                        name="item"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-<option value="">
-PO Item
-</option>
+                                        <option value="">
+                                            Item
+                                        </option>
 
-<?php
+                                        <?php
+                                        $getItem = mysqli_query($conn,"
+                                            SELECT DISTINCT item
+                                            FROM tbl_jo_spk
+                                            ORDER BY item ASC
+                                        ");
 
-$getPOItem = mysqli_query($conn,"
-SELECT DISTINCT po_item
-FROM tbl_spk_detail
-ORDER BY po_item ASC
-");
+                                        foreach($getItem as $item){
+                                        ?>
 
-foreach($getPOItem as $poitem){
+                                            <option
+                                                value="<?= $item['item']; ?>"
+                                                <?= (@$_GET['item'] == $item['item']) ? 'selected' : ''; ?>>
 
-?>
+                                                <?= $item['item']; ?>
 
-<option
-value="<?= $poitem['po_item']; ?>"
-<?= (@$_GET['po_item'] == $poitem['po_item']) ? 'selected' : ''; ?>>
+                                            </option>
 
-<?= $poitem['po_item']; ?>
+                                        <?php } ?>
 
-</option>
+                                    </select>
 
-<?php } ?>
+                                </div>
 
-</select>
+                                <!-- GENDER -->
+                                <div class="col-md-3 mb-2">
 
-</div>
+                                    <select
+                                        name="gender"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-<!-- ITEM -->
-<div class="col-md-3 mb-2">
+                                        <option value="">
+                                            Gender
+                                        </option>
 
-<select name="item"
-class="form-control select2bs4"
-style="width:100%;">
+                                        <?php
+                                        $getGender = mysqli_query($conn,"
+                                            SELECT DISTINCT gender
+                                            FROM tbl_spk_detail
+                                            ORDER BY gender ASC
+                                        ");
 
-<option value="">
-Search Item
-</option>
+                                        foreach($getGender as $gender){
+                                        ?>
 
-<?php
+                                            <option
+                                                value="<?= $gender['gender']; ?>"
+                                                <?= (@$_GET['gender'] == $gender['gender']) ? 'selected' : ''; ?>>
 
-$getItem = mysqli_query($conn,"
-SELECT DISTINCT item
-FROM tbl_jo_spk
-ORDER BY item ASC
-");
+                                                <?= $gender['gender']; ?>
 
-foreach($getItem as $item){
+                                            </option>
 
-?>
+                                        <?php } ?>
 
-<option
-value="<?= $item['item']; ?>"
-<?= (@$_GET['item'] == $item['item']) ? 'selected' : ''; ?>>
+                                    </select>
 
-<?= $item['item']; ?>
+                                </div>
 
-</option>
+                                <!-- COLOUR -->
+                                <div class="col-md-3 mb-2">
 
-<?php } ?>
+                                    <select
+                                        name="colour"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-</select>
+                                        <option value="">
+                                            Colour
+                                        </option>
 
-</div>
+                                        <?php
+                                        $getColour = mysqli_query($conn,"
+                                            SELECT DISTINCT colour
+                                            FROM tbl_spk_detail
+                                            ORDER BY colour ASC
+                                        ");
 
-<!-- GENDER -->
-<div class="col-md-3 mb-2">
+                                        foreach($getColour as $colour){
+                                        ?>
 
-<select name="gender"
-class="form-control select2bs4"
-style="width:100%;">
+                                            <option
+                                                value="<?= $colour['colour']; ?>"
+                                                <?= (@$_GET['colour'] == $colour['colour']) ? 'selected' : ''; ?>>
 
-<option value="">
-Gender
-</option>
+                                                <?= $colour['colour']; ?>
 
-<?php
+                                            </option>
 
-$getGender = mysqli_query($conn,"
-SELECT DISTINCT gender
-FROM tbl_spk_detail
-ORDER BY gender ASC
-");
+                                        <?php } ?>
 
-foreach($getGender as $gender){
+                                    </select>
 
-?>
+                                </div>
 
-<option
-value="<?= $gender['gender']; ?>"
-<?= (@$_GET['gender'] == $gender['gender']) ? 'selected' : ''; ?>>
+                                <!-- SIZE -->
+                                <div class="col-md-3 mb-2">
 
-<?= $gender['gender']; ?>
+                                    <select
+                                        name="size"
+                                        class="form-control select2bs4"
+                                        style="width:100%;">
 
-</option>
+                                        <option value="">
+                                            Size
+                                        </option>
 
-<?php } ?>
+                                        <?php
+                                        $getSize = mysqli_query($conn,"
+                                            SELECT DISTINCT size
+                                            FROM tbl_spk_size_qty
+                                            ORDER BY size ASC
+                                        ");
 
-</select>
+                                        foreach($getSize as $size){
+                                        ?>
 
-</div>
+                                            <option
+                                                value="<?= $size['size']; ?>"
+                                                <?= (@$_GET['size'] == $size['size']) ? 'selected' : ''; ?>>
 
-<!-- COLOUR -->
-<div class="col-md-3 mb-2">
+                                                <?= $size['size']; ?>
 
-<select name="colour"
-class="form-control select2bs4"
-style="width:100%;">
+                                            </option>
 
-<option value="">
-Colour
-</option>
+                                        <?php } ?>
 
-<?php
+                                    </select>
 
-$getColour = mysqli_query($conn,"
-SELECT DISTINCT colour
-FROM tbl_spk_detail
-ORDER BY colour ASC
-");
+                                </div>
 
-foreach($getColour as $colour){
+                                <!-- STATUS -->
+                                <div class="col-md-3 mb-2">
 
-?>
+                                    <select
+                                        name="status"
+                                        class="form-control">
 
-<option
-value="<?= $colour['colour']; ?>"
-<?= (@$_GET['colour'] == $colour['colour']) ? 'selected' : ''; ?>>
+                                        <option value="">
+                                            -- Status --
+                                        </option>
 
-<?= $colour['colour']; ?>
+                                        <option
+                                            value="PRINT"
+                                            <?= (@$_GET['status'] == 'PRINT') ? 'selected' : ''; ?>>
 
-</option>
+                                            🟢 PRINT
 
-<?php } ?>
+                                        </option>
 
-</select>
+                                        <option
+                                            value="NOT PRINT"
+                                            <?= (@$_GET['status'] == 'NOT PRINT') ? 'selected' : ''; ?>>
 
-</div>
+                                            🔴 NOT PRINT
 
-<!-- SIZE -->
-<div class="col-md-3 mb-2">
+                                        </option>
 
-<select name="size"
-class="form-control select2bs4"
-style="width:100%;">
+                                    </select>
 
-<option value="">
-Size
-</option>
+                                </div>
 
-<?php
+                                <!-- SEARCH -->
+                                <div class="col-md-1 mb-2">
 
-$getSize = mysqli_query($conn,"
-SELECT DISTINCT size
-FROM tbl_spk_size_qty
-ORDER BY size ASC
-");
+                                    <button
+                                        type="submit"
+                                        name="search"
+                                        class="btn btn-primary btn-block">
 
-foreach($getSize as $size){
+                                        <i class="fas fa-search"></i>
+                                        Search
 
-?>
+                                    </button>
 
-<option
-value="<?= $size['size']; ?>"
-<?= (@$_GET['size'] == $size['size']) ? 'selected' : ''; ?>>
+                                </div>
 
-<?= $size['size']; ?>
+                                <!-- RESET -->
+                                <div class="col-md-1 mb-2">
 
-</option>
+                                    <a
+                                        href="master_qrcode.php"
+                                        class="btn btn-secondary btn-block">
 
-<?php } ?>
+                                        <i class="fas fa-sync"></i>
+                                        Reset
 
-</select>
+                                    </a>
 
-</div>
+                                </div>
 
-<!-- STATUS -->
-<div class="col-md-3 mb-2">
+                            </div>
 
-<select name="status"
-class="form-control">
+                        </form>
 
-<option value="">
--- Status --
-</option>
+                    </div>
 
-<option value="PRINT"
-<?= (@$_GET['status'] == 'PRINT') ? 'selected' : ''; ?>>
+                </div>
 
-🟢 PRINT
+                <!-- TABLE -->
+                <div class="card card-success">
 
-</option>
+                    <div class="card-header">
 
-<option value="NOT PRINT"
-<?= (@$_GET['status'] == 'NOT PRINT') ? 'selected' : ''; ?>>
+                        <h3 class="card-title">
+                            Data QR Code
+                        </h3>
 
-🔴 NOT PRINT
+                    </div>
 
-</option>
+                    <form
+                        method="POST"
+                        action="print_multiple_qrcode.php">
 
-</select>
+                        <div class="card-body table-responsive">
 
-</div>
+                            <table
+                                id="example1"
+                                class="table table-bordered table-striped">
 
-<!-- BUTTON SEARCH -->
-<div class="col-1">
+                                <thead>
 
-<button type="submit"
-name="search"
-class="btn btn-primary btn-block">
+                                    <tr>
 
-<i class="fas fa-search"></i>
-Search
+                                        <th width="50">No</th>
 
-</button>
+                                        <th width="50">
 
-</div>
+                                            <input
+                                                type="checkbox"
+                                                id="checkAll">
 
-<!-- BUTTON RESET -->
-<div class="col-1">
+                                        </th>
 
-<a href="master_qrcode.php"
-class="btn btn-secondary btn-block">
+                                        <th>QR Code</th>
+                                        <th>JO</th>
+                                        <th>Line</th>
+                                        <th>Bucket</th>
+                                        <th>Style</th>
+                                        <th>PO</th>
+                                        <th>PO Item</th>
+                                        <th>Item</th>
+                                        <th>Gender</th>
+                                        <th>Colour</th>
+                                        <th>Size</th>
+                                        <th>Qty</th>
+                                        <th>Status</th>
 
-<i class="fas fa-sync"></i>
-Reset
+                                    </tr>
 
-</a>
+                                </thead>
 
-</div>
+                                <tbody>
 
-</div>
+                                    <?php
 
-</form>
+                                    $no = 1;
 
-</div>
+                                    $query = "
+                                        SELECT *
+                                        FROM tbl_spk_size_qty sq
 
-</div>
+                                        JOIN tbl_spk_detail d
+                                        ON sq.id_detail = d.id_detail
 
-<!-- SELECT2 -->
-<script src="plugins/select2/js/select2.full.min.js"></script>
+                                        JOIN tbl_jo_spk j
+                                        ON d.id_jo_spk = j.id_jo_spk
 
-<script>
+                                        INNER JOIN tbl_master_barcode mb
+                                        ON sq.id_size_qty = mb.id_size_qty
 
-$('.select2bs4').select2({
-    theme: 'bootstrap4',
-    width: '100%',
-    minimumInputLength: 1
-});
+                                        WHERE 1=1
+                                    ";
 
-</script>
+                                    if(isset($_GET['search'])){
 
-<!-- TABLE -->
-<div class="card card-success">
+                                        if($_GET['qr_code'] != ''){
+                                            $query .= " AND mb.qr_code = '".$_GET['qr_code']."'";
+                                        }
 
-<div class="card-header">
+                                        if($_GET['no_jo'] != ''){
+                                            $query .= " AND j.no_jo LIKE '%".$_GET['no_jo']."%'";
+                                        }
 
-<h3 class="card-title">
-Data QR Code
-</h3>
+                                        if($_GET['line'] != ''){
+                                            $query .= " AND j.line_produksi LIKE '%".$_GET['line']."%'";
+                                        }
 
-</div>
+                                        if($_GET['bucket'] != ''){
+                                            $query .= " AND d.bucket LIKE '%".$_GET['bucket']."%'";
+                                        }
 
-<form method="POST"
-action="print_multiple_qrcode.php">
+                                        if($_GET['style'] != ''){
+                                            $query .= " AND d.style LIKE '%".$_GET['style']."%'";
+                                        }
 
-<div class="card-body table-responsive">
+                                        if($_GET['po'] != ''){
+                                            $query .= " AND d.po LIKE '%".$_GET['po']."%'";
+                                        }
 
-<table id="example1"
-class="table table-bordered table-striped">
+                                        if($_GET['po_item'] != ''){
+                                            $query .= " AND d.po_item LIKE '%".$_GET['po_item']."%'";
+                                        }
 
-<thead>
+                                        if($_GET['item'] != ''){
+                                            $query .= " AND j.item LIKE '%".$_GET['item']."%'";
+                                        }
 
-<tr>
+                                        if($_GET['gender'] != ''){
+                                            $query .= " AND d.gender LIKE '%".$_GET['gender']."%'";
+                                        }
 
-<th width="50">No</th>
+                                        if($_GET['colour'] != ''){
+                                            $query .= " AND d.colour LIKE '%".$_GET['colour']."%'";
+                                        }
 
-<th width="50">
+                                        if($_GET['size'] != ''){
+                                            $query .= " AND sq.size = '".$_GET['size']."'";
+                                        }
 
-<input type="checkbox"
-id="checkAll">
+                                        if($_GET['status'] != ''){
+                                            $query .= " AND sq.status_print = '".$_GET['status']."'";
+                                        }
 
-</th>
+                                    }
 
-<th>QR Code</th>
-<th>JO</th>
-<th>Line</th>
-<th>Bucket</th>
-<th>Style</th>
-<th>PO</th>
-<th>PO Item</th>
-<th>Item</th>
-<th>Gender</th>
-<th>Colour</th>
-<th>Size</th>
-<th>Qty</th>
-<th>Status</th>
+                                    $data = [];
 
-</tr>
+                                    if(isset($_GET['search'])){
 
-</thead>
+                                        $query .= " ORDER BY sq.id_size_qty DESC";
 
-<tbody>
+                                        $data = mysqli_query($conn, $query);
 
-<?php
+                                    }
 
-$no = 1;
+                                    ?>
 
-$query = "
-SELECT *
-FROM tbl_spk_size_qty sq
+                                    <?php if(isset($_GET['search'])) : ?>
 
-JOIN tbl_spk_detail d
-ON sq.id_detail = d.id_detail
+                                        <?php foreach($data as $d) : ?>
 
-JOIN tbl_jo_spk j
-ON d.id_jo_spk = j.id_jo_spk
+                                            <tr>
 
-LEFT JOIN tbl_master_barcode mb
-ON sq.id_size_qty = mb.id_size_qty
+                                                <td>
+                                                    <?= $no++; ?>
+                                                </td>
 
-WHERE 1=1
-";
+                                                <td>
 
-if(isset($_GET['search'])){
+                                                    <input
+                                                        type="checkbox"
+                                                        name="selected_qr[]"
+                                                        value="<?= $d['id_size_qty']; ?>"
+                                                        class="checkItem">
 
-    if($_GET['no_jo'] != ''){
-        $query .= " AND j.no_jo LIKE '%".$_GET['no_jo']."%'";
-    }
+                                                </td>
 
-    if($_GET['line'] != ''){
-        $query .= " AND j.line_produksi LIKE '%".$_GET['line']."%'";
-    }
+                                                <td><?= $d['qr_code']; ?></td>
+                                                <td><?= $d['no_jo']; ?></td>
+                                                <td><?= $d['line_produksi']; ?></td>
+                                                <td><?= $d['bucket']; ?></td>
+                                                <td><?= $d['style']; ?></td>
+                                                <td><?= $d['po']; ?></td>
+                                                <td><?= $d['po_item']; ?></td>
+                                                <td><?= $d['item']; ?></td>
+                                                <td><?= $d['gender']; ?></td>
+                                                <td><?= $d['colour']; ?></td>
+                                                <td><?= $d['size']; ?></td>
+                                                <td><?= $d['qty']; ?></td>
 
-    if($_GET['bucket'] != ''){
-        $query .= " AND d.bucket LIKE '%".$_GET['bucket']."%'";
-    }
+                                                <td>
 
-    if($_GET['style'] != ''){
-        $query .= " AND d.style LIKE '%".$_GET['style']."%'";
-    }
+                                                    <?php if($d['status_print'] == "PRINT") : ?>
 
-    if($_GET['po'] != ''){
-        $query .= " AND d.po LIKE '%".$_GET['po']."%'";
-    }
+                                                        <span class="badge badge-success">
+                                                            PRINT
+                                                        </span>
 
-    if($_GET['po_item'] != ''){
-        $query .= " AND d.po_item LIKE '%".$_GET['po_item']."%'";
-    }
+                                                    <?php else : ?>
 
-    if($_GET['item'] != ''){
-        $query .= " AND j.item LIKE '%".$_GET['item']."%'";
-    }
+                                                        <span class="badge badge-danger">
+                                                            NOT PRINT
+                                                        </span>
 
-    if($_GET['gender'] != ''){
-        $query .= " AND d.gender LIKE '%".$_GET['gender']."%'";
-    }
+                                                    <?php endif; ?>
 
-    if($_GET['colour'] != ''){
-        $query .= " AND d.colour LIKE '%".$_GET['colour']."%'";
-    }
+                                                </td>
 
-    if($_GET['size'] != ''){
-        $query .= " AND sq.size LIKE '%".$_GET['size']."%'";
-    }
+                                            </tr>
 
-    if($_GET['status'] != ''){
-        $query .= " AND sq.status_print = '".$_GET['status']."'";
-    }
+                                        <?php endforeach; ?>
 
-}
+                                    <?php else : ?>
 
-$data = [];
+                                        <tr>
 
-if(isset($_GET['search'])){
+                                            <td
+                                                colspan="15"
+                                                class="text-center text-muted">
 
-    $query .= " ORDER BY sq.id_size_qty DESC";
+                                                Silakan lakukan filter terlebih dahulu
 
-    $data = mysqli_query($conn, $query);
+                                            </td>
 
-}
+                                        </tr>
 
-?>
+                                    <?php endif; ?>
 
-<?php if(isset($_GET['search'])) : ?>
+                                </tbody>
 
-<?php foreach($data as $d) : ?>
+                            </table>
 
-<tr>
+                        </div>
 
-<td>
-<?= $no++; ?>
-</td>
+                        <div class="card-footer">
 
-<td>
+                            <button
+                                type="submit"
+                                class="btn btn-warning">
 
-<input type="checkbox"
-name="selected_qr[]"
-value="<?= $d['id_size_qty']; ?>"
-class="checkItem">
+                                <i class="fas fa-print"></i>
+                                Print Selected QR Code
 
-</td>
+                            </button>
 
-<td>
-<?= $d['qr_code']; ?>
-</td>
+                        </div>
 
-<td>
-<?= $d['no_jo']; ?>
-</td>
+                    </form>
 
-<td>
-<?= $d['line_produksi']; ?>
-</td>
+                </div>
 
-<td>
-<?= $d['bucket']; ?>
-</td>
+            </div>
 
-<td>
-<?= $d['style']; ?>
-</td>
+        </section>
 
-<td>
-<?= $d['po']; ?>
-</td>
+    </div>
 
-<td>
-<?= $d['po_item']; ?>
-</td>
+    <!-- FOOTER -->
+    <footer class="main-footer">
 
-<td>
-<?= $d['item']; ?>
-</td>
+        <div class="float-right d-none d-sm-block">
+            <b>Version</b> 1.0.0
+        </div>
 
-<td>
-<?= $d['gender']; ?>
-</td>
+        2026
+        <strong>
+            <a href="#">Mfg Project Officer</a>.
+        </strong>
 
-<td>
-<?= $d['colour']; ?>
-</td>
+        All rights reserved.
 
-<td>
-<?= $d['size']; ?>
-</td>
-
-<td>
-<?= $d['qty']; ?>
-</td>
-
-<td>
-
-<?php if($d['status_print'] == "PRINT") : ?>
-
-<span class="badge badge-success">
-PRINT
-</span>
-
-<?php else : ?>
-
-<span class="badge badge-danger">
-NOT PRINT
-</span>
-
-<?php endif; ?>
-
-</td>
-
-</tr>
-
-<?php endforeach; ?>
-
-<?php else : ?>
-
-<tr>
-
-<td colspan="15"
-class="text-center text-muted">
-
-Silakan lakukan filter terlebih dahulu
-
-</td>
-
-</tr>
-
-<?php endif; ?>
-
-</tbody>
-
-</table>
-
-</div>
-
-<div class="card-footer">
-
-<button type="submit"
-class="btn btn-warning">
-
-<i class="fas fa-print"></i>
-Print Selected QR Code
-
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-<!-- FOOTER -->
-<footer class="main-footer">
-
-<div class="float-right d-none d-sm-block">
-<b>Version</b> 1.0.0
-</div>
-
-2026
-<strong>
-<a href="#">Mfg Project Officer</a>.
-</strong>
-
-All rights reserved.
-
-</footer>
+    </footer>
 
 </div>
 
@@ -923,46 +878,58 @@ All rights reserved.
 
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
+<!-- Select2 -->
+<script src="plugins/select2/js/select2.full.min.js"></script>
+
 <!-- AdminLTE -->
 <script src="dist/js/adminlte.min.js"></script>
 
 <script>
 
-$(document).ready(function () {
+    /* DATATABLE */
+    $(document).ready(function () {
 
-    $('#example1').DataTable({
-        "paging": true,
-        "pageLength": 10,
-        "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-        "lengthChange": true,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": false
+        $('#example1').DataTable({
+
+            "paging": true,
+            "pageLength": 10,
+
+            "lengthMenu": [
+                [10, 25, 50, 100, -1],
+                [10, 25, 50, 100, "All"]
+            ],
+
+            "lengthChange": true,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": false
+
+        });
+
     });
 
-});
+    /* SELECT2 */
+    $('.select2bs4').select2({
 
-/* SELECT ALL */
-$('#checkAll').click(function(){
+        theme: 'bootstrap4',
+        width: '100%',
+        minimumInputLength: 1
 
-    $('.checkItem').prop(
-        'checked',
-        $(this).prop('checked')
-    );
-});
-</script>
+    });
 
-<script src="plugins/select2/js/select2.full.min.js"></script>
+    /* CHECK ALL */
+    $('#checkAll').click(function(){
 
-<script>
+        $('.checkItem').prop(
+            'checked',
+            $(this).prop('checked')
+        );
 
-$('.select2bs4').select2({
-    theme: 'bootstrap4',
-    minimumInputLength: 1,
-});
+    });
 
 </script>
+
 </body>
 </html>
